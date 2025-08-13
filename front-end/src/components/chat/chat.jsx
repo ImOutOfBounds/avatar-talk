@@ -5,7 +5,6 @@ function Chat() {
     <Container>
         <ChatContainer>
             <Input>
-                
             </Input>
             <SendBtn> ^ </SendBtn>
         </ChatContainer>
