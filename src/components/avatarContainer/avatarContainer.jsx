@@ -20,7 +20,7 @@ function AvatarModel() {
     <primitive 
       object={scene} 
       scale={2} 
-      position={[0, -2, 0]} // move para baixo no eixo Y
+      position={[0, -2, 0]}
     />
   )
 }
