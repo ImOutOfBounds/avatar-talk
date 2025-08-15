@@ -1,18 +1,15 @@
-version: "3.9"
+version: '3.9'
+
 services:
   frontend:
     build: ./front-end
     ports:
       - "3000:80"
-    depends_on:
-      - backend
 
   backend:
     build: ./back-end
     ports:
       - "8080:8080"
-    depends_on:
-      - nlp
 
   nlp:
     build: ./nlpModel

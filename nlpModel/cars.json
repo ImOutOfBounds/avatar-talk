@@ -1,0 +1,72 @@
+[
+  {
+    "Name": "BYD",
+    "Model": "Dolphin",
+    "Image": "./bwdDolphin.png",
+    "Price": 99990,
+    "Location": "São Paulo"
+  },
+  {
+    "Name": "Toyota",
+    "Model": "Corolla",
+    "Image": "./toyotaCorola.png",
+    "Price": 112000,
+    "Location": "São Paulo"
+  },
+  {
+    "Name": "Volkswagen",
+    "Model": "T-Cross",
+    "Image": "./T-Cross.png",
+    "Price": 118500,
+    "Location": "Campinas"
+  },
+  {
+    "Name": "Honda",
+    "Model": "Civic",
+    "Image": "./hondaCivic.webp",
+    "Price": 105000,
+    "Location": "Rio de Janeiro"
+  },
+  {
+    "Name": "Chevrolet",
+    "Model": "Onix",
+    "Image": "./ChevroletOnix.png",
+    "Price": 85000,
+    "Location": "Belo Horizonte"
+  },
+  {
+    "Name": "Hyundai",
+    "Model": "HB20",
+    "Image": "./HB20.png",
+    "Price": 79000,
+    "Location": "São Paulo"
+  },
+  {
+    "Name": "Renault",
+    "Model": "Kwid",
+    "Image": "./kwid.png",
+    "Price": 68990,
+    "Location": "Curitiba"
+  },
+  {
+    "Name": "Fiat",
+    "Model": "Pulse",
+    "Image": "./fiatPulse.png",
+    "Price": 96000,
+    "Location": "São Paulo"
+  },
+  {
+    "Name": "Jeep",
+    "Model": "Renegade",
+    "Image": "./JeepRenegade.png",
+    "Price": 122000,
+    "Location": "Porto Alegre"
+  },
+  {
+    "Name": "Peugeot",
+    "Model": "208",
+    "Image": "./pegeot208.webp",
+    "Price": 87500,
+    "Location": "São Paulo"
+  }
+]
