@@ -1,17 +1,16 @@
-version: '3.9'
-
 services:
   frontend:
-    build: ./front-end
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
     ports:
       - "3000:80"
-
-  backend:
-    build: ./back-end
-    ports:
-      - "8080:8080"
+    depends_on:
+      - nlp
 
   nlp:
-    build: ./nlpModel
+    build:
+      context: ./nlpModel
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"

@@ -1,41 +1,51 @@
-import { Canvas } from '@react-three/fiber'
-import { Environment, useGLTF, useAnimations } from '@react-three/drei'
-import { useEffect } from 'react'
-import { Container } from './style'
+'use client';
 
-function AvatarModel() {
-  const { scene, animations } = useGLTF('/models/avatar.glb')
-  const { actions } = useAnimations(animations, scene)
+import React, { useRef, useEffect } from 'react';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
+import { AnimationMixer, Clock } from 'three';
+import { Environment } from '@react-three/drei';
+import { Container } from './style';
+
+function AvatarModel({ playAnimation }) {
+  const fbx = useLoader(FBXLoader, '/models/talking.fbx');
+  const mixer = useRef();
+  const clock = new Clock();
 
   useEffect(() => {
-    if (actions?.Idle) {
-      actions.Idle.reset().fadeIn(0.3).play()
+    if (fbx.animations && fbx.animations.length > 0) {
+      mixer.current = new AnimationMixer(fbx);
+      const idle = mixer.current.clipAction(fbx.animations[0]);
+      idle.play();
     }
-    return () => {
-      if (actions?.Idle) actions.Idle.fadeOut(0.3)
-    }
-  }, [actions])
+  }, [fbx]);
 
-  return (
-    <primitive 
-      object={scene} 
-      scale={2} 
-      position={[0, -2, 0]}
-    />
-  )
+  useFrame(() => {
+    if (mixer.current) mixer.current.update(clock.getDelta());
+  });
+
+  useEffect(() => {
+    if (playAnimation && mixer.current && fbx.animations.length > 1) {
+      const speak = mixer.current.clipAction(fbx.animations[1]);
+      speak.reset().fadeIn(0.2).play();
+    } else if (!playAnimation && mixer.current && fbx.animations.length > 0) {
+      const idle = mixer.current.clipAction(fbx.animations[0]);
+      idle.reset().fadeIn(0.2).play();
+    }
+  }, [playAnimation, fbx]);
+
+  return <primitive object={fbx} scale={0.01} position={[0, -1.2, 0]} />;
 }
 
-function AvatarContainer() {
+export default function AvatarContainer({ playAnimation }) {
   return (
     <Container>
-      <Canvas camera={{ position: [0, 0, 2.5], fov: 50 }}>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[50, 1, 500]} />
-        <AvatarModel />
+      <Canvas camera={{ position: [0, 0, 1], fov: 50 }}>
+        <ambientLight intensity={0.8} />
+        <directionalLight position={[0, 10, 10]} intensity={1} />
+        <AvatarModel playAnimation={playAnimation} />
         <Environment preset="sunset" />
       </Canvas>
     </Container>
-  )
+  );
 }
-
-export default AvatarContainer
