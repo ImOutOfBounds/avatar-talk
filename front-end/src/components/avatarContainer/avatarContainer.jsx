@@ -8,7 +8,7 @@ import { Environment } from '@react-three/drei';
 import { Container } from './style';
 
 function AvatarModel({ playAnimation }) {
-  const fbx = useLoader(FBXLoader, '/models/talking.fbx');
+  const fbx = useLoader(FBXLoader, '/models/Talking.fbx');
   const mixer = useRef();
   const clock = new Clock();
 
