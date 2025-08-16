@@ -1,13 +1,13 @@
-# Build da aplicação React
 FROM node:20-alpine AS build
 
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
 
-# Servir com Nginx
+# Servir via Nginx
 FROM nginx:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
