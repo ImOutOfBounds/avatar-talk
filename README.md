@@ -12,10 +12,11 @@ O chatbot consegue interagir em tempo real, trazendo respostas praticas sobre d�
 O chat-bot pode ser integrado a qualquer pagina web, facilitando sua implementação.
 
 ## Tecnologias utilizadas
-React
-Three.js
-FastAPI
-Bart-large-mnli - zero-shot-classification
+- React
+- Three.js
+- FastAPI
+- Bart-large-mnli - zero-shot-classification
+- Docker
 
 ## Fazer Setup 
 Para rodar a api localmente, execute os seguintes comandos dentro da Pasta nlpModel
